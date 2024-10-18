@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       PrimaryPrize.hasMany(models.Customization, {
         foreignKey: 'primary_price',
-        as: 'primary_prize',
+        as: 'primary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
@@ -59,23 +59,32 @@ module.exports = (sequelize, DataTypes) => {
     revenue_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_revenue_types', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     tax_group_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_tax_groups', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     pricing_component_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_pricing_components', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     price: {
       type: DataTypes.INTEGER,
@@ -86,14 +95,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     dicount_percent: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isInt: true,
       }
     },
     discount_amount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isInt: true,
       }

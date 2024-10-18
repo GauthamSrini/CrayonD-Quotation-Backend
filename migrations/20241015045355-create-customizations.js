@@ -49,7 +49,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      one_time_charges:{
+      one_time_charge:{
         type: Sequelize.INTEGER,
         allowNull:false,
         references: {

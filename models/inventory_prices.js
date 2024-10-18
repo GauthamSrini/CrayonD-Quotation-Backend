@@ -79,9 +79,12 @@ module.exports = (sequelize, DataTypes) => {
     pricing_component_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_pricing_components', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     price: {
       type: DataTypes.INTEGER,
@@ -92,14 +95,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     dicount_percent: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isInt: true,
       }
     },
     discount_amount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isInt: true,
       }

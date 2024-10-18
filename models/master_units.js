@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       MasterUnits.hasMany(models.Customization, {
         foreignKey: 'unit_id',
-        as: 'unit',
+        as: 'units',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  

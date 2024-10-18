@@ -45,7 +45,14 @@ module.exports = (sequelize, DataTypes) => {
          notEmpty: true,
        }
      },
-     prize: {
+     path: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      }
+    },
+     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {

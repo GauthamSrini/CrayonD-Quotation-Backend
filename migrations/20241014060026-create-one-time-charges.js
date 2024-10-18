@@ -11,15 +11,33 @@ module.exports = {
       },
       revenue_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'master_revenue_types', 
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       tax_group_id:{
         type: Sequelize.INTEGER,
-        allowNull:false
+        allowNull:false,
+        references: {
+          model: 'master_tax_groups', 
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       pricing_component_id:{
         type: Sequelize.INTEGER,
-        allowNull:false
+        allowNull:false,
+        references: {
+          model: 'master_pricing_components', 
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       chargable: {
         type: Sequelize.BOOLEAN,
@@ -32,11 +50,11 @@ module.exports = {
       },
       dicount_percent:{
         type: Sequelize.INTEGER,
-        allowNull:false
+        allowNull:true
       },
       discount_amount:{
         type: Sequelize.INTEGER,
-        allowNull:false
+        allowNull:true
       },
       total_price:{
         type: Sequelize.INTEGER,

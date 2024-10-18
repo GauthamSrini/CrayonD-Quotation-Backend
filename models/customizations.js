@@ -48,8 +48,8 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
       })
       Customization.belongsTo(models.OneTimeCharges,{
-        foreignKey: 'one_time_charges',
-        as:'one_time_charges',
+        foreignKey: 'one_time_charge',
+        as:'one_time_charge',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
@@ -132,7 +132,7 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    one_time_charges: {
+    one_time_charge: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       OneTimeCharges.hasMany(models.Customization, {
-        foreignKey: 'one_time_charges',
+        foreignKey: 'one_time_charge',
         as: 'one_time_charge',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
@@ -59,23 +59,32 @@ module.exports = (sequelize, DataTypes) => {
     revenue_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_revenue_types', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     tax_group_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_tax_groups', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     pricing_component_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_pricing_components', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     chargable: {
       type: DataTypes.BOOLEAN,
@@ -93,14 +102,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     dicount_percent: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull:true,
       validate: {
         isInt: true,
       }
     },
     discount_amount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isInt: true,
       }

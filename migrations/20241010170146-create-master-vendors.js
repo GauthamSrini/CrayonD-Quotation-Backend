@@ -30,28 +30,6 @@ module.exports = {
         defaultValue: true,
         allowNull: false
       },
-      created_by: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      updated_by: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-      },
-      deleted_by: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-      },
-      created_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') 
-      },
-      updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-      },
       deleted_at: {
         type: Sequelize.DATE,
         allowNull: true,
