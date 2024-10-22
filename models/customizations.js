@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Customization.hasMany(models.SelectedAmenities, {
         foreignKey: 'customization_id',
-        as: 'customization',
+        as: 'AmenityCustomization',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       Customization.hasMany(models.SelectedUtilities, {
         foreignKey: 'customization_id',
-        as: 'customization',
+        as: 'UtilityCustomization',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
@@ -37,37 +37,37 @@ module.exports = (sequelize, DataTypes) => {
       })
       Customization.belongsTo(models.PrimaryPrize,{
         foreignKey: 'primary_price',
-        as:'primary_price',
+        as:'primary_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       Customization.belongsTo(models.SecondaryPrize,{
         foreignKey: 'secondary_price',
-        as:'secondary_price',
+        as:'secondary_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       Customization.belongsTo(models.OneTimeCharges,{
         foreignKey: 'one_time_charge',
-        as:'one_time_charge',
+        as:'one_time_charge_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       Customization.belongsTo(models.Refundables,{
         foreignKey: 'refundable_price',
-        as:'refundable_price',
+        as:'refundable_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       Customization.belongsTo(models.InventoryItems,{
         foreignKey: 'inventory_price',
-        as:'inventory_price',
+        as:'inventory_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       Customization.belongsTo(models.ParkingSlot,{
         foreignKey: 'parking_slot_price',
-        as:'parking_slot_price',
+        as:'parking_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })

@@ -13,37 +13,37 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       MasterTaxGroups.hasMany(models.PrimaryPrize, {
         foreignKey: 'tax_group_id',
-        as: 'taxs',
+        as: 'taxs_primary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterTaxGroups.hasMany(models.SecondaryPrize, {
         foreignKey: 'tax_group_id',
-        as: 'taxs',
+        as: 'taxs_secondary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterTaxGroups.hasMany(models.OneTimeCharges, {
         foreignKey: 'tax_group_id',
-        as: 'taxs',
+        as: 'taxs_one_time_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterTaxGroups.hasMany(models.Refundables, {
         foreignKey: 'tax_group_id',
-        as: 'taxs',
+        as: 'taxs_refundables_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterTaxGroups.hasMany(models.InventoryItems, {
         foreignKey: 'tax_group_id',
-        as: 'taxs',
+        as: 'taxs_inventory_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       MasterTaxGroups.hasMany(models.ParkingSlot, {
         foreignKey: 'tax_group_id',
-        as: 'taxs',
+        as: 'taxs_parking_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });

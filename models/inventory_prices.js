@@ -13,25 +13,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       InventoryItems.hasMany(models.Customization, {
         foreignKey: 'inventory_price',
-        as: 'inventory_price',
+        as: 'inventory_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       InventoryItems.belongsTo(models.MasterRevenueTypes,{
         foreignKey: 'revenue_id',
-        as:'revenue',
+        as:'revenue_inventory_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       InventoryItems.belongsTo(models.MasterTaxGroups,{
         foreignKey: 'tax_group_id',
-        as:'taxes',
+        as:'taxes_inventory_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       InventoryItems.belongsTo(models.MasterPricingComponents,{
         foreignKey: 'pricing_component_id',
-        as:'pricing_component',
+        as:'pricing_component_inventory_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })

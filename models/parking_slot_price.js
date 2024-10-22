@@ -13,25 +13,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       ParkingSlot.hasMany(models.Customization, {
         foreignKey: 'parking_slot_price',
-        as: 'parking_price',
+        as: 'parking_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       ParkingSlot.belongsTo(models.MasterRevenueTypes,{
         foreignKey: 'revenue_id',
-        as:'revenue',
+        as:'revenue_parking_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       ParkingSlot.belongsTo(models.MasterTaxGroups,{
         foreignKey: 'tax_group_id',
-        as:'taxes',
+        as:'taxes_parking_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       ParkingSlot.belongsTo(models.MasterPricingComponents,{
         foreignKey: 'pricing_component_id',
-        as:'pricing_component',
+        as:'pricing_component_parking_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })

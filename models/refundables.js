@@ -13,25 +13,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Refundables.hasMany(models.Customization, {
         foreignKey: 'refundable_price',
-        as: 'refundable_price',
+        as: 'refundable_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       Refundables.belongsTo(models.MasterRevenueTypes,{
         foreignKey: 'revenue_id',
-        as:'revenue',
+        as:'revenue_refundables_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       Refundables.belongsTo(models.MasterTaxGroups,{
         foreignKey: 'tax_group_id',
-        as:'taxes',
+        as:'taxes_refundables_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       Refundables.belongsTo(models.MasterPricingComponents,{
         foreignKey: 'pricing_component_id',
-        as:'pricing_component',
+        as:'pricing_component_refundables_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })

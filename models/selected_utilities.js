@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       SelectedUtilities.belongsTo(models.Customization, {
         foreignKey: 'customization_id',
-        as: 'customization',
+        as: 'UtilityCustomization',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       }); 
@@ -47,16 +47,22 @@ module.exports = (sequelize, DataTypes) => {
      utility_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
+      references: {
+        model: 'master_utilities', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     customization_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      }
+      references: {
+        model: 'customizations', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     price: {
       type: DataTypes.INTEGER,
@@ -67,14 +73,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     discount_percent: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true,
       }
     },
     discount_amount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true,
       }

@@ -13,25 +13,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       OneTimeCharges.hasMany(models.Customization, {
         foreignKey: 'one_time_charge',
-        as: 'one_time_charge',
+        as: 'one_time_charge_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       OneTimeCharges.belongsTo(models.MasterRevenueTypes,{
         foreignKey: 'revenue_id',
-        as:'revenue',
+        as:'revenue_one_time_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       OneTimeCharges.belongsTo(models.MasterTaxGroups,{
         foreignKey: 'tax_group_id',
-        as:'taxes',
+        as:'taxes_one_time_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       OneTimeCharges.belongsTo(models.MasterPricingComponents,{
         foreignKey: 'pricing_component_id',
-        as:'pricing_component',
+        as:'pricing_component_one_time_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })

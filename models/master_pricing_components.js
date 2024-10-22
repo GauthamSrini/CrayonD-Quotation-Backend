@@ -13,37 +13,37 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       MasterPricingComponents.hasMany(models.PrimaryPrize, {
         foreignKey: 'pricing_component_id',
-        as: 'pricing_component',
+        as: 'pricing_component_primary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterPricingComponents.hasMany(models.SecondaryPrize, {
         foreignKey: 'pricing_component_id',
-        as: 'pricing_component',
+        as: 'pricing_component_secondary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterPricingComponents.hasMany(models.OneTimeCharges, {
         foreignKey: 'pricing_component_id',
-        as: 'pricing_component',
+        as: 'pricing_component_one_time_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterPricingComponents.hasMany(models.Refundables, {
         foreignKey: 'pricing_component_id',
-        as: 'pricing_component',
+        as: 'pricing_component_refundables_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterPricingComponents.hasMany(models.InventoryItems, {
         foreignKey: 'pricing_component_id',
-        as: 'pricing_component',
+        as: 'pricing_component_inventory_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       MasterPricingComponents.hasMany(models.ParkingSlot, {
         foreignKey: 'pricing_component_id',
-        as: 'pricing_component',
+        as: 'pricing_component_parking_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });

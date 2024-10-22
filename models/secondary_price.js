@@ -13,25 +13,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       SecondaryPrize.hasMany(models.Customization, {
         foreignKey: 'secondary_price',
-        as: 'secondary_prize',
+        as: 'secondary_price_id',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       SecondaryPrize.belongsTo(models.MasterRevenueTypes,{
         foreignKey: 'revenue_id',
-        as:'revenue',
+        as:'revenue_secondary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       SecondaryPrize.belongsTo(models.MasterTaxGroups,{
         foreignKey: 'tax_group_id',
-        as:'taxes',
+        as:'taxes_secondary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
       SecondaryPrize.belongsTo(models.MasterPricingComponents,{
         foreignKey: 'pricing_component_id',
-        as:'pricing_component',
+        as:'pricing_component_secondary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       })
@@ -59,23 +59,32 @@ module.exports = (sequelize, DataTypes) => {
     revenue_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_revenue_types', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     tax_group_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_tax_groups', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     pricing_component_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true,
-      }
+      references: {
+        model: 'master_pricing_components', 
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     chargable: {
       type: DataTypes.BOOLEAN,
@@ -93,14 +102,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     dicount_percent: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isInt: true,
       }
     },
     discount_amount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isInt: true,
       }

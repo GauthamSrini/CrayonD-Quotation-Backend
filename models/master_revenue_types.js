@@ -13,37 +13,37 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       MasterRevenueTypes.hasMany(models.PrimaryPrize, {
         foreignKey: 'revenue_id',
-        as: 'revenue',
+        as: 'revenue_primary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterRevenueTypes.hasMany(models.SecondaryPrize, {
         foreignKey: 'revenue_id',
-        as: 'revenue',
+        as: 'revenue_secondary_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterRevenueTypes.hasMany(models.OneTimeCharges, {
         foreignKey: 'revenue_id',
-        as: 'revenue',
+        as: 'revenue_one_time_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterRevenueTypes.hasMany(models.Refundables, {
         foreignKey: 'revenue_id',
-        as: 'revenue',
+        as: 'revenue_refundables_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
       MasterRevenueTypes.hasMany(models.InventoryItems, {
         foreignKey: 'revenue_id',
-        as: 'revenue',
+        as: 'revenue_inventory_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });  
       MasterRevenueTypes.hasMany(models.ParkingSlot, {
         foreignKey: 'revenue_id',
-        as: 'revenue',
+        as: 'revenue_parking_price',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
